@@ -6,24 +6,21 @@ class BookList extends Component {
 
     render() {
 
-        const booksArray = Array.from(this.props.books);
-
-        const books = booksArray.map ( (result, i) => 
+        const bookResults = this.props.books.map((book, i) => 
             <Item
-                {...result}
-                key={i} />)
+                title={book.items[i].volumeInfo.title}
+                author={book.items[i].volumeInfo.authors}
+                description={book.items[i].volumeInfo.description}
+                href={book.items[i].selfLink}
+                key={i}
+            />)
 
         return (
             <div>
-                {books}
+                { bookResults }
             </div>
         )
-
     }
 }
-
-BookList.defaultProps = {
-    books: []
-};
 
 export default BookList;

@@ -14,15 +14,15 @@ class SearchBar extends Component {
         };
     }
 
-    changeSearchTerm(searchTerm) {
+    changeSearchTerm = (searchTerm) => {
         this.props.setSearchTerm(searchTerm);
     }
 
-    changePrintType(printType) {
+    changePrintType = (printType) => {
         this.props.setPrintType(printType);
     }
 
-    changeBookType(bookType) {
+    changeBookType = (bookType) => {
         if(bookType === 'all') {
             this.props.setBookType(null)
         } else {
@@ -30,14 +30,14 @@ class SearchBar extends Component {
         }
     }
 
-    generateSearchUrl(currentState) {
+    generateSearchUrl = (currentState) => {
         console.log(' = = = generateSearchUrl ran = = = ');
         const urlBase = 'https://www.googleapis.com/books/v1/volumes?';
         const queryItems = Object.keys(this.currentState).map( key => encodeURIComponent(key) + '=' + encodeURIComponent(currentState[key]) )
         return urlBase + queryItems.join('&') 
     }
 
-    handleSubmit(e) {
+    handleSubmit = (e) => {
         console.log(' = = = handleSubmit ran = = = ')
         // Prevent the default functioning
         e.preventDefault();

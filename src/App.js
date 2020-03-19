@@ -37,7 +37,7 @@ class App extends Component {
         }
         return res;
       })
-      .catch( res => res.json() )
+      .then( res => res.json() )
       .then ( data => {
         console.log(data) //THIS
         this.setState({
@@ -100,8 +100,8 @@ class App extends Component {
       <Header/>
       <SearchBar
         setSearchTerm = { selected => this.setSearchTerm(selected) }
-        setPrintType = { selected => this.setPrintType( selected ) }
-        setBookType = { selected => this.setBookType( selected ) }
+        setPrintType = { selected => this.setPrintType(selected) }
+        setBookType = { selected => this.setBookType(selected) }
         handleSubmit = { () => this.handleSubmit() }
       />
       <p>This is print type !</p>
