@@ -6,14 +6,23 @@ class BookList extends Component {
 
     render() {
 
-        const bookResults = this.props.books.map((book, i) => 
+        console.log('this is what props.books is ... => ' + this.props.books)
+
+        const bookResults = [];
+
+        if (!this.props.books){
+            bookResults = ''
+         } else {
+
+        const bookResults = this.props.books.items.map((book, i) => 
             <Item
-                title={book.items[i].volumeInfo.title}
-                author={book.items[i].volumeInfo.authors}
-                description={book.items[i].volumeInfo.description}
-                href={book.items[i].selfLink}
+                title={book.volumeInfo.title}
+                author={book.volumeInfo.authors}
+                description={book.volumeInfo.description}
+                href={book.selfLink}
                 key={i}
             />)
+        }
 
         return (
             <div>
