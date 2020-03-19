@@ -23,16 +23,14 @@ class App extends Component {
   }
 
   componentDidMount() {
+
     console.log(' = = = componentDidMount ran = = = ')
 
-    
-
-    
   }
 
-  makeApiCall( searchQuery ) {
+  makeApiCall = (searchQuery) => {
     
-    fetch( searchQuery )
+    fetch(searchQuery)
       .then( res => {
         if(!res.ok) {
           throw new Error('Something went wrong with the dang fetch!')
@@ -51,11 +49,11 @@ class App extends Component {
       })
   }
 
-  makeCorsLink( formattedUrl ) {
+  makeCorsLink = (formattedUrl) => {
     return `https://cors-anywhere.herokuapp.com/${formattedUrl}`
   }
 
-  generateFormattedUrl() {
+  generateFormattedUrl = () => {
     const urlBase = this.state.baseUrl + '?';
     const search = 'q=' + this.state.searchTerm + '&'; // Query
     const filter = (this.state.bookType === null) ? '' : 'filter=' + this.state.bookType + '&'; // Book type
@@ -74,21 +72,21 @@ class App extends Component {
 
   }
 
-  setSearchTerm(searchTerm) {
+  setSearchTerm = (searchTerm) => {
     console.log('setSearchTerm ran!...')
     this.setState({
       searchTerm
     })
   }
 
-  setPrintType(printType) {
+  setPrintType = (printType) => {
     console.log('printType ran with the argument: ' + printType)
     this.setState({
       printType
     })
   }
 
-  setBookType(bookType) {
+  setBookType = (bookType) => {
     console.log('setBookType ran with: ' + bookType)
     this.setState({
       bookType
