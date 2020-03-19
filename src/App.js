@@ -66,7 +66,7 @@ class App extends Component {
     return url;
   }
 
-  handleSubmit() {
+  handleSubmit = () => {
 
     const formattedUrl = this.generateFormattedUrl();
     const corsUrl = this.makeCorsLink ( formattedUrl )
@@ -110,7 +110,7 @@ class App extends Component {
       [ {this.state.printType} ]
       <p>This is a book type !!</p>
       [ {this.state.bookType} ]
-      <p>Here is the returned json: {this.state.books.toString()} </p>
+      <p>Here is the returned json: {JSON.stringify(this.state.books)} </p>
       <Results 
         bookResults = { this.state.books } />
     </div>
