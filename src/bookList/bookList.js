@@ -6,15 +6,14 @@ class BookList extends Component {
 
     render() {
 
+        if (!this.props.books){
+            bookResults = null;
+         }
+
         console.log('this is what props.books is ... => ' + this.props.books)
 
-        const bookResults = [];
-
-        if (!this.props.books){
-            bookResults = ''
-         } else {
-
         const bookResults = this.props.books.items.map((book, i) => 
+
             <Item
                 title={book.volumeInfo.title}
                 author={book.volumeInfo.authors}
@@ -22,7 +21,7 @@ class BookList extends Component {
                 href={book.selfLink}
                 key={i}
             />)
-        }
+        
 
         return (
             <div>
@@ -31,5 +30,11 @@ class BookList extends Component {
         )
     }
 }
+
+BookList.defaultProps = {
+    books: {
+      items: []
+    }
+  }
 
 export default BookList;
