@@ -41,6 +41,7 @@ class App extends Component {
       })
       .catch( res => res.json() )
       .then ( data => {
+        console.log(data) //THIS
         this.setState({
           books: data
         });
